@@ -1,0 +1,8 @@
+Given a one dimensional array. We need to find the sum of the contiguous subarray which has the maximum sum.
+
+Example -
+
+Array - [13,-3,-25,20,-3,-16,-23,18,20,-7,12,-5,-22,15,-4,7]
+
+Maximum contiguous Subarray - [18,20,-7,12]
+Maximum sum = 18+20+(-7)+(12)=43

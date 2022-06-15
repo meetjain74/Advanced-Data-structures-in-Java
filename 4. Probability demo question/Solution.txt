@@ -1,0 +1,40 @@
+There are 4 outcomes when we call BIASED-RANDOM twice, i.e., 00, 01, 10, 11.
+
+The strategy is as following:
+
+00 or 11: call BIASED-RANDOM twice again
+01: output 0
+10: output 1
+
+We can calculate the probability of each outcome:
+
+Pr{00 | 11} = p^2 + (1 - p)^2
+
+Pr{01} = (1 - p)p
+
+Pr{10}=p(1−p)
+
+Since there's no other way to return a value, it returns 0 and 1 both with probability 1 / 2.
+
+The pseudo code is as follow:
+
+UNBIASED-RANDOM
+    while true
+        x = BIASED-RANDOM
+        y = BIASED-RANDOM
+        if x != y
+            return x
+
+This algorithm actually uses the equivalence of the probability of occurrence of 01 and 10, and subtly converts the unequal 00 and 11 to 01 and 10,thus eliminating the probability that its probability is not equivalent.
+
+Each iteration is a Bernoulli trial, where "success" means that the iteration does return a value.
+
+We can view each iteration as a Bernoulli trial, where "success" means that the iteration returns a value.
+
+Pr{success}
+=Pr{0 is returned}+Pr{1 is returned}
+=2p(1−p).
+​	
+ 
+The expected number of trials for this scenario is 1 / (2p(1 - p)). 
+Thus, the expected running time of UNBIASED-RANDOM is Θ(1/(2p(1−p)).

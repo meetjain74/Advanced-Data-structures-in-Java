@@ -1,0 +1,1 @@
+We need to sort an array using the merge sort algorithm
